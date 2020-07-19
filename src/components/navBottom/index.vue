@@ -52,7 +52,8 @@ export default {
   }
 }
 </script>
-<style >
+
+<style  lang="less">
   .navBottom{
     position: absolute;
     bottom: 0;

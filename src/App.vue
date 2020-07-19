@@ -23,5 +23,9 @@ export default {
 </script>
 
 <style>
+/* *{
+  padding: 0;
+  margin: 0;
+} */
   @import url('./assets/css/reset.css');
 </style>

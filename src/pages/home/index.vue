@@ -1,17 +1,16 @@
 <template>
   <div id="root">
-    我是首页
+    <HomeHeader/>
   </div>
 </template>
 <script>
+import HomeHeader from "../../components/homeHeader/index"
 export default {
-  
+  components:{
+    HomeHeader,
+  }
 }
 </script>
 <style >
-  #root{
-    width:750px;
-    height: 500px;
-    background-color: green;
-  }
+
 </style>
