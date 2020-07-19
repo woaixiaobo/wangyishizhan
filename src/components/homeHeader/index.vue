@@ -16,14 +16,20 @@
         <div class="scroll-item" 
         @click="changeActive('tuijian')"
         :class="{active:active==='tuijian'}" >推荐</div>
-        <div class="scroll-item" :class="{active:active==='jujia'}" @click="changeActive('jujia')">居家生活</div>
-        <div class="scroll-item" >居家生活</div>
-        <div class="scroll-item" >居家生活</div>
-        <div class="scroll-item" >居家生活</div>
-        <div class="scroll-item" >居家生活</div>
-        <div class="scroll-item" >居家生活</div>
-        <div class="scroll-item" >居家生活</div>
-        <div class="scroll-item" >居家生活</div>
+        <div  
+          class="scroll-item"
+          :class="{active:active===item.name}" 
+          @click="changeActive(item.name)"
+          v-for="(item) in cateModules" :key="item.id"
+        >{{item.name}}</div>
+        <!-- <div class="scroll-item">居家生活</div>
+        <div class="scroll-item">居家生活</div>
+        <div class="scroll-item">居家生活</div>
+        <div class="scroll-item">居家生活</div>
+        <div class="scroll-item">居家生活</div>
+        <div class="scroll-item">居家生活</div>
+        <div class="scroll-item">居家生活</div> -->
+
       </div>
     </div>
   </div>
@@ -44,6 +50,7 @@
 
 <script>
 import BScroll from '@better-scroll/core'
+import {mapState,mapActions} from "vuex"
 export default {
   data() {
     return {
@@ -51,13 +58,21 @@ export default {
     }
   },
   mounted() {
-    //导航滑动
-    this.init()
+    //获取请求
+    this.CateModules()
+    this.$nextTick(()=>{
+      //导航滑动
+      this.init()
+      console.log(this.bs);
+    })
   },
   beforeDestroy() {
     this.bs.destroy()
   },
   methods:{
+    ...mapActions({
+      CateModules:'CateModules'
+    }),
     //切换选中状态
     changeActive(type){
       this.active=type
@@ -73,13 +88,18 @@ export default {
           // console.log('done')
         })
       },
-      _registerHooks(hookNames, handler) {
-        hookNames.forEach((name) => {
-          this.bs.on(name, handler)
-        })
-      },
+    _registerHooks(hookNames, handler) {
+      hookNames.forEach((name) => {
+        this.bs.on(name, handler)
+      })
+    },
     
-  }
+  },
+  computed: {
+    ...mapState({
+      cateModules:state=>state.home.cateModules
+    })
+  },
 }
 </script>
 <style lang="less">
@@ -129,20 +149,6 @@ export default {
     border-radius: 10px;
   }
   // 导航
-  .nav ul{
-    display: flex;
-    height: 60px;
-    font-size: 28px;
-    align-items: center;
-    overflow: hidden;
-    div{
-      padding: 0px 25px 0px 25px;
-      white-space: nowrap;
-    }
-    div:nth-of-type(1){
-      margin-left: 25px;
-    }
-  }
   .horizontal-container
   {
     .scroll-wrapper{
@@ -156,7 +162,7 @@ export default {
           height: 60px;
         }
       .scroll-item:nth-of-type(1){
-        margin-left: 50px;
+        margin-left: 30px;
       }
       .scroll-item
         {
@@ -165,7 +171,7 @@ export default {
           font-size :28px;
           display :inline-block;
           text-align :center;
-          padding :0 10px;
+          padding :0 25px;
           position: relative;
           &.active{
             color: #DD1A21;
