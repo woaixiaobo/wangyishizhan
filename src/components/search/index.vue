@@ -47,7 +47,7 @@ export default {
 </script>
 <style lang="less" >
 body{
-  background-color: rgb(236, 233, 233);
+  // background-color: rgb(236, 233, 233);
   .van-search--show-action{
     height: 88px;
     padding-top: 20px;
