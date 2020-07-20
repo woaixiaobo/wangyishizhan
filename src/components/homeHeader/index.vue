@@ -109,6 +109,13 @@ export default {
 }
 </script>
 <style lang="less">
+  .header{
+    position: fixed;
+    top: 0;
+    background-color: #fff;
+    height: 148px;
+    z-index: 1;
+  }
 // 搜索区域
   .search{
     display: flex;

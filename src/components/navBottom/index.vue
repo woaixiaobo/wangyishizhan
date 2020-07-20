@@ -53,9 +53,9 @@ export default {
 }
 </script>
 
-<style  lang="less">
+<style lang="less" >
   .navBottom{
-    position: absolute;
+    position: fixed;
     bottom: 0;
     left: 0;
     display: flex;

@@ -28,10 +28,4 @@ export default {
   margin: 0;
 } */
   @import url('./assets/css/reset.css');
-  /* swiper样式 */
-  .van-swipe__indicator{
-    width: 42px;
-    border-radius: 10px;
-    height: 4px;
-  }
 </style>

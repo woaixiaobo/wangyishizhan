@@ -1,5 +1,6 @@
 <template>
   <div id="root">
+    <div class="zhanwei"></div>
     <HomeHeader/>
     <HomeContent/>
   </div>
@@ -14,6 +15,10 @@ export default {
   }
 }
 </script>
-<style >
-
+<style lang="less" >
+  .zhanwei{
+    position: relative;
+    width: 100%;
+    height: 148px;
+  }
 </style>

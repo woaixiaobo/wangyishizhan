@@ -6,6 +6,9 @@ import 'lib-flexible/flexible'
 import router from "./router"
 //引入vuex
 import store from "./store/index"
+//引入api用作全局
+import * as API from "./api" 
+Vue.prototype.$API = API
 //引入ui库
 import { Search ,Swipe, SwipeItem,Lazyload} from 'vant';
 Vue.use(Search);
