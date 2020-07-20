@@ -50,6 +50,10 @@
       <div class="top">
         <!-- <img src="https://yanxuan.nosdn.127.net/d9b021de430394e9b274bf0455b53120.gif?imageView&quality=75" alt=""> -->
       </div>
+      <div class="bottom">
+        <img src="https://yanxuan.nosdn.127.net/8b5c103801f035cc7369afc1a46e0bc5.png?quality=75&type=webp&imageView&thumbnail=375x0" alt="">
+        <img src="https://yanxuan.nosdn.127.net/01fae6d1209f9904af34095feb394325.png?quality=75&type=webp&imageView&thumbnail=375x0">
+      </div>
     </div>
   </div>
 </template>
@@ -137,6 +141,7 @@ export default {
         height: 72px;
         align-items: center;
         color: #333;
+        margin-bottom: 8px;
         i {
           vertical-align: middle;
           img{
@@ -150,6 +155,7 @@ export default {
       .kingKongModule{
         display: flex;
         flex-wrap: wrap;
+        // height: 372px;
         li{
           display: flex;
           flex-direction: column;
@@ -158,6 +164,7 @@ export default {
           height: 156px;
           padding: 0 20px;
           text-align: center;
+          margin-bottom: 25px;
           img{
             width: 110px;
             height: 110px;
@@ -167,12 +174,26 @@ export default {
       }
       // 新人
       .newPerson{
+        // margin-top: 30px;
         height: 548px;
         .top{
           width: 100%;
           height: 321px;
           background: url("https://yanxuan.nosdn.127.net/d9b021de430394e9b274bf0455b53120.gif?imageView&quality=75");
           background-size: 100%;
+        }
+        .bottom{
+          height: 321px;
+          background-color:rgb(230, 73, 4);
+          text-align: center;
+          img{
+            width: 351px;
+            height: 186px;
+            margin-top: 20px;
+            &:nth-of-type(1){
+              margin-right: 10px;
+            }
+          }
         }
       }
     }

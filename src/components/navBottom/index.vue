@@ -63,6 +63,7 @@ export default {
     height: 98px;
     justify-content: space-around;
     align-items: center;
+    background-color: #fff;
   }
   .navBottom .navItem{
     display: flex;
