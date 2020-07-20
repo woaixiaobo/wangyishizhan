@@ -140,6 +140,7 @@ export default {
 <style lang="less" scoped>
   .homeContent 
     {
+      margin-top: 148px;
       background-color: #eee;
       .my-swipe {
         .container{

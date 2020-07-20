@@ -10,12 +10,13 @@ import store from "./store/index"
 import * as API from "./api" 
 Vue.prototype.$API = API
 //引入ui库
-import { Search ,Swipe, SwipeItem,Lazyload} from 'vant';
+import { Search ,Swipe, SwipeItem,Lazyload,Overlay,Button} from 'vant';
 Vue.use(Search);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
 Vue.use(Lazyload);
-
+Vue.use(Overlay);
+Vue.use(Button);
 Vue.config.productionTip = false
 
 new Vue({
