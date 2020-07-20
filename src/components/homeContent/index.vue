@@ -55,6 +55,42 @@
         <img src="https://yanxuan.nosdn.127.net/01fae6d1209f9904af34095feb394325.png?quality=75&type=webp&imageView&thumbnail=375x0">
       </div>
     </div>
+    <!-- 新人专享礼 -->
+    <div class="newGift">
+      <div class="title">新人专享礼</div>
+      <div class="cotent">
+        <div class="left">
+          <p>新人专享礼包</p>
+          <img src="http://yanxuan.nosdn.127.net/352b0ea9b2d058094956efde167ef852.png" alt="">
+        </div>
+        <div class="right">
+          <div class="fuli">
+            <div class="text">
+              <p class="fulishe">福利社</p>
+              <p class="dayPrice">今日特价</p>
+            </div>
+            <img src="https://yanxuan-item.nosdn.127.net/22cfd602403ca6a026a439e08e3e3127.png?quality=75&type=webp&imageView&thumbnail=200x200" alt="">
+            <div class="discount">
+              <div class="line1">￥82.8</div>
+              <div class="line2">￥88</div>
+            </div>
+          </div>
+          <div class="xinren">
+            <div class="text">
+              <p class="fulishe">新人拼团</p>
+              <p class="baoyou">1元起包邮</p>
+            </div>
+            <img src="https://yanxuan-item.nosdn.127.net/1eecf74b769af3ed4c7817aeb5d6bb2b.png?quality=75&type=webp&imageView&thumbnail=200x200" alt="">
+            <div class="discount">
+              <div class="line1">￥1</div>
+              <div class="line2">￥13.0</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 底部临时 -->
+    <div class="text1"></div>
   </div>
 </template>
 <script>
@@ -104,6 +140,7 @@ export default {
 <style lang="less" scoped>
   .homeContent 
     {
+      background-color: #eee;
       .my-swipe {
         .container{
           width: 100%;
@@ -141,7 +178,8 @@ export default {
         height: 72px;
         align-items: center;
         color: #333;
-        margin-bottom: 8px;
+        padding-bottom: 8px;
+        background-color: #fff;
         i {
           vertical-align: middle;
           img{
@@ -156,6 +194,7 @@ export default {
         display: flex;
         flex-wrap: wrap;
         // height: 372px;
+        background-color: #fff;
         li{
           display: flex;
           flex-direction: column;
@@ -183,7 +222,7 @@ export default {
           background-size: 100%;
         }
         .bottom{
-          height: 321px;
+          height: 225px;
           background-color:rgb(230, 73, 4);
           text-align: center;
           img{
@@ -195,6 +234,122 @@ export default {
             }
           }
         }
+      }
+      .newGift{
+        height: 558px;
+        background-color: #fff;
+        margin-top: 20px;
+        .title{
+          height: 90px;
+          font-size: 34px;
+          color: #333;
+          text-align: center;
+          line-height: 90px;
+          position: relative;
+          &::before{
+            content: '';
+            position: absolute;
+            left: 240px;
+            top:45px;
+            width: 28px;
+            height: 3px;
+            background-color: #333;
+          }
+          &::after{
+            content: '';
+            position: absolute;
+            right: 240px;
+            top:45px;
+            width: 28px;
+            height: 3px;
+            background-color: #333;
+          }
+        }
+        .cotent{
+          display: flex;
+          padding: 0px 30px;
+          .left{
+              width: 343px;
+              height: 434px;
+              background-color: #F9E9CF;
+              margin-right: 4px;
+              p{
+                margin: 40px 0px 30px 30px;
+                font-size: 32px;
+              }
+              img{
+                width: 258px;
+                height: 257px;
+                margin-left: 50px;
+              }
+            }
+          .right{
+            width: 344px;
+            height: 434px;
+            .discount{
+              position: absolute;
+              top: 20px;
+              right: 30px;
+              width: 80px;
+              height: 80px;
+              opacity: .8;
+              background: #F59524;
+              border-radius: 50%;
+              padding-top: 10px;
+              color: #fff;
+              text-align: center;
+              box-sizing: border-box;
+              // letter-spacing:-1px;
+              -webkit-transform-origin-x: 0;
+              
+              .line1{
+                font-size: 24px;
+                // -webkit-transform: scale(0.90);
+              }
+              .line2{
+                text-decoration: line-through;
+                font-size: 0.2rem;
+                transform: scale(0.80);
+              }
+            }
+            img{
+                width: 200px;
+                height: 200px;
+                position: absolute;
+                right: 0;
+                top: 20px;
+              }
+            .text{
+                .fulishe{
+                  font-size: 32px;
+                  margin-bottom: 6px;
+                }
+                .dayPrice{
+                  color: #666;
+                }
+              }
+            .fuli{
+              height: 215px;
+              background-color: #FBE2D3;
+              border-radius: 4px;
+              margin-bottom: 4px;
+              padding: 30px 0px 0px 30px;
+              position: relative;
+              box-sizing: border-box;
+            }
+            .xinren{
+              height: 215px;
+              background-color: #FFECC2;
+              padding: 30px 0px 0px 30px;
+              position: relative;
+              box-sizing: border-box;
+            }
+          }
+          }
+      }
+      // 临时
+      .text1{
+        height: 500px;
       }
     }
 </style>
