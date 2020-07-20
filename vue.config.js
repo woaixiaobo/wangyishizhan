@@ -17,9 +17,10 @@ module.exports = {
     open:true,
     proxy: { // 配置代理
         '/api': { // 只处理以/api开头的请求
-        target: 'http://localhost:3001', // 转发的目标地址
-        changeOrigin: true, // 支持跨域
-        pathRewrite: {'^/api' : ''}
+          target: 'http://localhost:3001', // 转发的目标地址
+          // target: 'http://192.168.1.102:3001', // 转发的目标地址
+          changeOrigin: true, // 支持跨域
+          pathRewrite: {'^/api' : ''}
         }
     }
 }

@@ -6,6 +6,10 @@ import 'lib-flexible/flexible'
 import router from "./router"
 //引入vuex
 import store from "./store/index"
+//引入ui库
+import { Search } from 'vant';
+Vue.use(Search);
+
 Vue.config.productionTip = false
 
 new Vue({

@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <!-- 搜索 -->
-    <div class="search">
+    <div class="search" @click="toSearch">
       <img src="//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/indexLogo-a90bdaae6b.png?imageView&type=webp" alt="">
       <div class="in">
         <i></i>
@@ -22,29 +22,9 @@
           @click="changeActive(item.name)"
           v-for="(item) in cateModules" :key="item.id"
         >{{item.name}}</div>
-        <!-- <div class="scroll-item">居家生活</div>
-        <div class="scroll-item">居家生活</div>
-        <div class="scroll-item">居家生活</div>
-        <div class="scroll-item">居家生活</div>
-        <div class="scroll-item">居家生活</div>
-        <div class="scroll-item">居家生活</div>
-        <div class="scroll-item">居家生活</div> -->
-
       </div>
     </div>
   </div>
-    <!-- <div class="nav">
-      <ul>
-        <li>推荐</li>
-        <li>居家生活</li>
-        <li>居家生活</li>
-        <li>居家生活</li>
-        <li>居家生活</li>
-        <li>居家生活</li>
-        <li>居家生活</li>
-        <li>居家生活</li>
-      </ul>
-    </div> -->
   </div>
 </template>
 
@@ -57,22 +37,44 @@ export default {
       active:'tuijian'
     }
   },
-  mounted() {
+  async mounted() {
     //获取请求
-    this.CateModules()
+    await this.CateModules()
     this.$nextTick(()=>{
       //导航滑动
       this.init()
-      console.log(this.bs);
     })
+    /*window.onresize=()=>{
+        this.bs&&this.bs.refresh()
+        if (this._isMobile()) {
+        console.log("手机端")
+        location.reload()
+        this.bs&&this.bs.refresh()
+      } else {
+        console.log("pc端")
+        // this.bs&&this.bs.refresh()
+        location.reload()
+        this.bs&&this.bs.refresh()
+      }
+    }*/
   },
   beforeDestroy() {
     this.bs.destroy()
   },
   methods:{
+    //跳转到搜索页面
+    toSearch(){
+      this.$router.push('/search')
+    },
+    //判断是移动端还是pc端
+    _isMobile() {
+        let flag = navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)/i)
+        return flag;
+    },
     ...mapActions({
       CateModules:'CateModules'
     }),
+    
     //切换选中状态
     changeActive(type){
       this.active=type
@@ -80,6 +82,10 @@ export default {
     //导航滑动
     init() {
         this.bs = new BScroll(this.$refs.scroll, {
+          mouseWheel:true,
+          disableTouch:false,
+          disableMouse:false,
+          resizePolling:0,
           click:true,//开启点击事件
           scrollX: true,
           probeType: 3 // listening scroll hook
@@ -98,7 +104,7 @@ export default {
   computed: {
     ...mapState({
       cateModules:state=>state.home.cateModules
-    })
+    }),
   },
 }
 </script>
