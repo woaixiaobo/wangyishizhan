@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 Vue.use(Vuex)
 import home from "./home"
+import classify from "./classify"
 
 const state = {
   data:'我是小博'
@@ -22,6 +23,7 @@ const store = new Vuex.Store({
   getters,
   modules:{
     home,
+    classify,
   }
 })
 
