@@ -64,7 +64,7 @@ export default {
   },
   computed: {
     cateGroy(){
-      return this.cateGroys.find(item=>item.name===this.active)
+      return this.cateGroys.find(item=>item.name===this.active)||{}
     }
   },
 }

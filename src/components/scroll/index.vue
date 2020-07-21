@@ -56,38 +56,11 @@ export default {
 }
 </script>
 <style lang="less" scoped>
-// 卡片区域
-.swiperTabContainer{
-  height: 685px;
-  .swiperTab{
-    height: 262*2px;
-    position: relative;
-    img{
-      height: 259*2px;
-      &:nth-of-type(2){
-        width: 62*2px;
-        height: 34.5*2px;
-        position: absolute;
-        left: 10px;
-        top: 60px;
-      }
-    }
-    .title{
-      position: absolute;
-      left: 146px;
-      top: 76px;
-      color: #fff;
-      font-size: 32px;
-      span:nth-of-type(1){
-        margin-right: 10px;
-      }
-    }
-  }
   .horizontal-container
     {
       .scroll-wrapper{
         position: relative;
-        width :750px;
+        width :355*2px;
         margin :0 auto;
         white-space: nowrap;
         overflow :hidden;
@@ -124,5 +97,4 @@ export default {
       }
 
     }
-}
 </style>

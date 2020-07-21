@@ -20,15 +20,15 @@
         </div>
       </div>
     <!-- 滑动区域 -->
-      <Scroll/>
+      <div class="scroll">
+        
+      </div>
     </div>
   </div>
 </template>
 <script>
-import Scroll from "../../components/scroll/index"
 export default {
   components:{
-    Scroll,
   }
 }
 </script>
@@ -71,6 +71,7 @@ export default {
     }
     // 卡片区域
     .swiperTabContainer{
+      position: relative;
       height: 685px;
       .swiperTab{
         height: 262*2px;
@@ -95,6 +96,15 @@ export default {
             margin-right: 10px;
           }
         }
+      }
+      .scroll{
+        position: absolute;
+        top: 140px;
+        margin-left: 20px;
+        width: 355*2px;
+        height: 270*2px;
+        background-color: #fff;
+        border-radius: 20px;
       }
     }
   }
