@@ -1,11 +1,11 @@
 <template>
   <div class="homeContent">
     <!-- swiper -->
-    <van-swipe  ref="vanSwiper" @change="onChange" class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item v-for="(item, index) in swiperImages" :key="index">
+    <!-- <van-swipe  ref="vanSwiper" @change="onChange" class="my-swipe" :autoplay="3000" indicator-color="white">
+      <van-swipe-item v-for="(item, index) in swiperImages" :key="index"> -->
         <!-- 懒加载图片 -->
         <!-- <img  v-lazy="item" > -->
-        <img  :src="item" >
+        <!-- <img  :src="item" >
       </van-swipe-item>
       <template #indicator>
         <div class="container" >
@@ -16,7 +16,8 @@
           </div>
         </div>
       </template>
-    </van-swipe>
+    </van-swipe> -->
+    <Swiper :swipeData="swiperImages"/>
     <!-- 三个横向标题 -->
     <ul class="grow">
       <li>
@@ -197,11 +198,12 @@
 </template>
 <script>
 import {mapState,mapActions} from "vuex"
+import Swiper from "../swiper/index"
 export default {
   data() {
     return {
       time: 2 * 60 * 60 * 1000,//倒计时
-      current:0,//轮播的下标
+      // current:0,//轮播的下标
       //swiper图片
       swiperImages:[
         'https://yanxuan.nosdn.127.net/e1d32c538a9fcf420411592746098ad2.jpg?type=webp&imageView&quality=75&thumbnail=750x0',
@@ -238,6 +240,9 @@ export default {
       indexData:state=>state.home.indexData,
     })
   },
+  components:{
+    Swiper,
+  }
 }
 </script>
 <style lang="less" scoped>
@@ -246,36 +251,36 @@ export default {
       margin-top: 148px;
       margin-bottom: 88px;
       background-color: #eee;
-      .my-swipe {
-        .container{
-          width: 100%;
-          position: absolute;
-          left: 0;
-          bottom: 30px;
-          display: flex;
-          justify-content: center;
-        }
-        .custom-indicator {
-          font-size: 12px;
-          background-color: #fff;
-          width: 40px;
-          border-radius: 10px;
-          height: 4px;
-          margin-right: 8px;
-          opacity: .4;
-          &.active{
-            opacity: 1;
-          }
-        }
-        .van-swipe-item{
-          height:296px;
-          bottom: 40px;
-          img{
-          // width: 100%;
-          height: 370px;
-        }
-        }
-      }
+      // .my-swipe {
+      //   .container{
+      //     width: 100%;
+      //     position: absolute;
+      //     left: 0;
+      //     bottom: 30px;
+      //     display: flex;
+      //     justify-content: center;
+      //   }
+      //   .custom-indicator {
+      //     font-size: 12px;
+      //     background-color: #fff;
+      //     width: 40px;
+      //     border-radius: 10px;
+      //     height: 4px;
+      //     margin-right: 8px;
+      //     opacity: .4;
+      //     &.active{
+      //       opacity: 1;
+      //     }
+      //   }
+      //   .van-swipe-item{
+      //     height:296px;
+      //     bottom: 40px;
+      //     img{
+      //     // width: 100%;
+      //     height: 370px;
+      //   }
+      //   }
+      // }
       // 三个横向标题
       .grow{
         display: flex;
