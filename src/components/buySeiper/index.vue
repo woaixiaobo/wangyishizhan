@@ -1,17 +1,4 @@
 <template>
-  <!-- <div class="swiper-container" ref="buySwiper">
-    <div class="swiper-wrapper">
-        <div class="swiper-slide" v-for="(item, index) in swiperDate.navList" :key="index">
-          <div class="slideItem">
-            <img :src="item.picUrl" alt="">
-            <div class="texcontent">
-              <p>{{item.mainTitle}}</p>
-              <p>{{item.viceTitle}}</p>
-            </div>
-          </div> 
-        </div>
-    </div>
-  </div> -->
   <div class="swiper-container">
     <div class="swiper-wrapper" >
       <div class="swiper-slide" v-for="(item, index) in swiperDate.navList" :key="index">
@@ -23,6 +10,8 @@
           </div>
         </div> 
       </div>
+      <!-- Add Pagination -->
+    <div class="swiper-scrollbar"></div>
       <!-- <div class="swiper-slide">
         <div class="slideItem">
           <img src="https://yanxuan.nosdn.127.net/e21381b7e1e7caebbe72488db9542163.gif" alt="">
@@ -57,11 +46,15 @@ export default {
         slidesPerView: 4,
         slidesPerColumn: 2,
         spaceBetween: 0,
-        pagination: {
+        scrollbar: {
           el: '.swiper-pagination',
-          clickable: true,
+          dragSize: 30,
+          // clickable: true,
+          // type: 'bullets',
         },
       });
+      // mySwiper.scrollbar.$el.css('height','15px');
+      // mySwiper.scrollbar.$dragEl.css('background','#ff6600');
     },
     //请求
     async getNavWap(){
@@ -78,6 +71,8 @@ export default {
       height: 100%;
       margin-left: auto;
       margin-right: auto;
+      // ---swiper-theme-color: #ff6600;
+      // --swiper-pagination-color: #00ff33;/* 两种都可以 */
     }
     .swiper-slide {
       text-align: center;
@@ -99,28 +94,37 @@ export default {
       -webkit-align-items: center;
       align-items: center;
       .slideItem{
-      width: 100%;
-      height: 100.5*2px;
-      text-align: center;
-      margin-right: 20px;
-      img{
-        width: 60*2px;
-        height: 60*2px;
-      }
-      .texcontent{
-        width: 90*2px;
-        p{
-          text-align: center;
-          &:nth-of-type(1){
-            font-weight: 700;
-            font-size: 28px;
-          }
-          &:nth-of-type(2){
-            color: #999;
-            font-size: 14px;
+        width: 100%;
+        height: 100.5*2px;
+        text-align: center;
+        margin-right: 20px;
+        img{
+          width: 60*2px;
+          height: 60*2px;
+        }
+        .texcontent{
+          width: 90*2px;
+          p{
+            text-align: center;
+            &:nth-of-type(1){
+              font-weight: 700;
+              font-size: 28px;
+            }
+            &:nth-of-type(2){
+              color: #999;
+              font-size: 14px;
+            }
           }
         }
       }
+
     }
-    }
+    // .swiper-pagination{
+    //   position: absolute;
+    //   left: 0;
+    //   bottom: 0;
+    //   width: 350px;
+    //   height: 10px;
+    //   background-color: gray;
+    // }
 </style>

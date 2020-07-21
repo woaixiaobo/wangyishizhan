@@ -26,7 +26,17 @@ module.exports = {
           target: 'https://m.you.163.com/topic/v1/know/navWap.json', // 转发的目标地址
           changeOrigin: true, // 支持跨域
           pathRewrite: {'^/wangyi' : ''}
-        }
+        },
+        '/waterFirst': { // 只处理以/api开头的请求
+          target: 'https://m.you.163.com/topic/v1/find/recManual.json', // 转发的目标地址
+          changeOrigin: true, // 支持跨域
+          pathRewrite: {'^/waterFirst' : ''}
+        },
+        '/waterAragin': { // 只处理以/api开头的请求
+          target: ' https://m.you.163.com/topic/v1/find/recAuto.json', // 转发的目标地址
+          changeOrigin: true, // 支持跨域
+          pathRewrite: {'^/waterAragin' : ''}
+        },
     }
 }
 }

@@ -21,17 +21,28 @@
       </div>
     <!-- 滑动区域 -->
       <div class="scroll">
+        <!-- 引入轮播图组件 -->
         <BuySwiper/>
       </div>
     </div>
+    <!-- 瀑布流 -->
+    <Waterfall/>
   </div>
 </template>
 <script>
 import BuySwiper from "../../components/buySeiper/index"
-// import BuySwiper from "../../components/swiper-buy/index"
+import Waterfall from "../../components/waterfall copy/index"
 export default {
+  data() {
+    return {
+    }
+  },
+  async mounted() {
+  
+  },
   components:{
     BuySwiper,
+    Waterfall,
   }
 }
 </script>
