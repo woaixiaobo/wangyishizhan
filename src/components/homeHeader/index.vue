@@ -111,6 +111,12 @@ export default {
     //切换选中状态
     changeActive(type){
       this.active=type
+      if(type!=='tuijian'){
+        //触发全局事件总线，跟新数据，将搜索框的搜索词重置
+        this.$bus.$emit('isShow',false);
+      }else{
+        this.$bus.$emit('isShow',true);
+      }
     },
     //导航滑动
     init() {
