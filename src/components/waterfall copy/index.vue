@@ -60,7 +60,7 @@
 export default{
   data(){
     return{
-        WaterArgin:[],//触底瀑布
+        WaterNum:1,//触底瀑布的次数
         WaterFish:[],//处理完成的数组，包含topics和look
         data:[
           {
@@ -153,8 +153,8 @@ export default{
   },
   methods:{
     //初始化请求数据
-    async initWaterFall(){
-      let result = await this.$API.getWaterArgin({page:1,size:10});
+    async initWaterFall(page=1,size=10){
+      let result = await this.$API.getWaterArgin({page,size});
       console.log(result.data.data.result);
       this.WaterArgin = result.data.data.result
       //得到的数组
@@ -166,7 +166,11 @@ export default{
         let arr = []
         return arr.concat(topics,look)
       })
-      this.WaterFish = data.flat();
+      // let {WaterFish} = this
+      let finsh=data.flat()
+      // console.log(this.WaterFish.concat(finsh,this.WaterFish));   
+      // this.WaterFish = data.flat();
+      this.WaterFish = this.WaterFish.concat(finsh,this.WaterFish)
     },
     scroll(){
       // console.log(scrollData)
@@ -175,9 +179,9 @@ export default{
       this.col = col
       console.log(this.col)
     },
-    loadmore(index){
-      this.data = this.data.concat(this.data)
-      console.log(index);
+    loadmore(){
+      this.WaterNum+=1
+      this.initWaterFall(this.WaterNum,5);
     }
   }
 }
