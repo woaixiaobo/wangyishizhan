@@ -15,11 +15,11 @@
           </li>
         </ul>
       </div>
-      <div class="right">
+      <div class="right" v-if="cateGroy.subCateList">
         <div class="titleImage">
           <img :src="cateGroy.imgUrl">
         </div>
-        <div class="imageItem" v-for="(item, index) in cateGroy.subCateList" :key="index">
+        <div class="imageItem" v-for="(item, index) in cateGroy.subCateList.slice(0,9)" :key="index">
           <img :src="item.wapBannerUrl" alt="">
           <span>{{item.frontName}}</span>
         </div>
@@ -33,7 +33,7 @@ export default {
     return {
       active:"",
       cateGroys:[],//请求的数据
-      cateGroy:{},//每一项的数据
+      // cateGroy:{},//每一项的数据
     }
   },
   async mounted() {
@@ -41,7 +41,7 @@ export default {
     let result = await this.$API.getCateGroy()
     this.cateGroys = result.data
     this.active = result.data[0].name
-    this.cateGroy = result.data[0]
+    // this.cateGroy = result.data[0]
   },
   methods: {
     //点击切换状态，利用事件委托和自定义属性data 
@@ -50,6 +50,11 @@ export default {
         this.active=e.target.dataset.name
       }
     },
+  },
+  computed: {
+    cateGroy(){
+      return this.cateGroys.find(item=>item.name===this.active)
+    }
   },
 }
 </script>

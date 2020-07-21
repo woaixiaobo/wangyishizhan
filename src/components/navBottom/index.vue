@@ -64,6 +64,8 @@ export default {
     justify-content: space-around;
     align-items: center;
     background-color: #fff;
+    border-top: 1px solid #f4f4f4;
+    box-sizing: border-box;
   }
   .navBottom .navItem{
     display: flex;
