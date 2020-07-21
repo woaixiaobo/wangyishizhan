@@ -14,13 +14,13 @@
       <div class="scroll-wrapper" ref="scroll">
         <div class="scroll-content" >
           <div class="scroll-item" 
-          @click="changeActive('tuijian')"
+          @click="changeActive('tuijian',0)"
           :class="{active:active==='tuijian'}" >推荐</div>
           <div  
             class="scroll-item"
             :class="{active:active===item.name}" 
-            @click="changeActive(item.name)"
-            v-for="(item) in cateModules" :key="item.id"
+            @click="changeActive(item.name,index)"
+            v-for="(item,index) in cateModules" :key="item.id"
           >{{item.name}}</div>
         </div>
       </div> 
@@ -48,12 +48,13 @@
 <script>
 import BScroll from '@better-scroll/core'
 import {mapState,mapActions} from "vuex"
+import PubSub from "pubsub-js"
 export default {
   data() {
     return {
       active:'tuijian',
       flag:false,
-      show:false
+      show:false,
     }
   },
   async mounted() {
@@ -109,11 +110,14 @@ export default {
     }),
     
     //切换选中状态
-    changeActive(type){
+    changeActive(type,index){
       this.active=type
       if(type!=='tuijian'){
         //触发全局事件总线，跟新数据，将搜索框的搜索词重置
         this.$bus.$emit('isShow',false);
+        //发布消息传递当前项数据
+        console.log('发布',this.cateModules[index]);
+        PubSub.publish('cateGroy', this.cateModules[index]);
       }else{
         this.$bus.$emit('isShow',true);
       }

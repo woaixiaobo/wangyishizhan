@@ -1,8 +1,8 @@
 <template>
   <div id="root">
     <HomeHeader/>
-    <HomeContent v-if="isShow" ></HomeContent>
-    <cateGroys v-else></cateGroys>
+    <HomeContent v-show="isShow" ></HomeContent>
+    <cateGroys  v-show="!isShow"></cateGroys>
   </div>
 </template>
 <script>

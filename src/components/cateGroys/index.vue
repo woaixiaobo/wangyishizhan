@@ -20,6 +20,105 @@
             <span>￥100</span>
           </div>
         </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
+        <div class="cateItem">
+          <div class="cateItemHeader">
+            <img src="https://yanxuan-item.nosdn.127.net/b43c746a6349d5ec44d81c043d780676.png?type=webp&imageView&quality=65&thumbnail=330x330" alt="">
+            <div class="dsc">玩味元素设计，多尺寸大满足</div>
+          </div>
+          <div class="name">不如睡觉·全棉印花四件套</div>
+          <div class="price">
+            <span>￥199</span>
+            <span>￥100</span>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -27,6 +126,7 @@
 
 <script>
 import Swiper from "../swiper/index"
+import PubSub from "pubsub-js"
 export default {
   data() {
     return {
@@ -37,7 +137,17 @@ export default {
         'https://yanxuan.nosdn.127.net/2895a663aa000e3b00602bd34a9be106.jpg?type=webp&imageView&quality=75&thumbnail=750x0',
         'https://yanxuan.nosdn.127.net/79b2dbf762217e6e532f335bda4c85b3.jpg?type=webp&imageView&quality=75&thumbnail=750x0',
       ],
+      cateGroy:{},//点击每一项的数据
     }
+  },
+  beforeMount() {
+    PubSub.subscribe('cateGroy', (msg,data)=>{
+      console.log('订阅',msg);
+      this.cateGroy = data
+    })
+  },
+  beforeDestroy() {
+    PubSub.unsubscribe('cateGroy');
   },
   components:{
     Swiper,
