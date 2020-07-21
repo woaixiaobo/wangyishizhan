@@ -1,7 +1,12 @@
 <template>
   <div>
     <!-- 搜索 -->
-    <div class="search"></div>
+    <div class="search" @click="toSearch">
+      <div class="in">
+        <i></i>
+        <span>搜索商品, 共34101款好物</span>
+      </div>
+    </div>
     <!-- 内容 -->
     <div class="content">
       <div class="left" @click="changeActive">
@@ -19,10 +24,12 @@
         <div class="titleImage">
           <img :src="cateGroy.imgUrl">
         </div>
-        <div class="imageItem" v-for="(item, index) in cateGroy.subCateList.slice(0,9)" :key="index">
-          <img :src="item.wapBannerUrl" alt="">
-          <span>{{item.frontName}}</span>
-        </div>
+        <!-- <div v-if="cateGroy.subCateList"> -->
+          <div class="imageItem" v-for="(item, index) in cateGroy.subCateList.slice(0,9)" :key="index">
+            <img :src="item.wapBannerUrl" alt="">
+            <span>{{item.frontName}}</span>
+          </div>
+        <!-- </div> -->
       </div>
     </div>
   </div>
@@ -44,6 +51,10 @@ export default {
     // this.cateGroy = result.data[0]
   },
   methods: {
+    //跳转到搜索页面
+    toSearch(){
+      this.$router.push('/search')
+    },
     //点击切换状态，利用事件委托和自定义属性data 
     changeActive(e){
       if(e.target.nodeName==="LI"){
@@ -60,7 +71,33 @@ export default {
 </script>
 <style lang="less" scoped>
   .search{
+    display: flex;
     height: 88px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    .in{
+      width: 92%;
+      height: 56px;
+      background-color: #ededed;
+      border-radius: 8px;
+      position: relative;
+      font-size: 28px;
+      color: #666;
+      line-height: 56px;
+      span{
+        margin-left: 80px;
+      }
+      i{
+        width: 28px;
+        height: 28px;
+        background-image: url('//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-553dba3aff.png?imageView&type=webp');
+        background-size: 28px;
+        position: absolute;
+        left: 26%;
+        top: 14px;
+      }
+    }
   }
   .content{
       box-sizing: border-box;
