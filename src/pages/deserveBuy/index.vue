@@ -21,14 +21,17 @@
       </div>
     <!-- 滑动区域 -->
       <div class="scroll">
-        
+        <BuySwiper/>
       </div>
     </div>
   </div>
 </template>
 <script>
+import BuySwiper from "../../components/buySeiper/index"
+// import BuySwiper from "../../components/swiper-buy/index"
 export default {
   components:{
+    BuySwiper,
   }
 }
 </script>
@@ -105,6 +108,8 @@ export default {
         height: 270*2px;
         background-color: #fff;
         border-radius: 20px;
+        box-sizing: border-box;
+        padding: 40px 10px;
       }
     }
   }

@@ -9,6 +9,9 @@ import store from "./store/index"
 //引入api用作全局
 import * as API from "./api" 
 Vue.prototype.$API = API
+//引入swiper轮播库
+// If you use Swiper 6.0.0 or higher
+import 'swiper/swiper-bundle.css'
 //引入ui库
 import { Search ,Swipe, SwipeItem,Lazyload,Overlay,Button,CountDown} from 'vant';
 Vue.use(Search);
