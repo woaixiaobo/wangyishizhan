@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import Waterfall from "../../components/waterfall copy/index"
+import Waterfall from "../../components/waterfall/index"
 export default {
   components:{
     Waterfall

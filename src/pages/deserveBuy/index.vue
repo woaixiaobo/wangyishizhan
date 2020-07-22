@@ -24,7 +24,7 @@
 </template>
 <script>
 import BuySwiper from "../../components/buySeiper/index"
-import Waterfall from "../../components/waterfall copy/index"
+import Waterfall from "../../components/waterfall/index"
 import ThreeIcon from "../../components/threeIcon/index"
 export default {
   data() {
