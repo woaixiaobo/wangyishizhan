@@ -1,14 +1,14 @@
 <template>
   <div id="root">
-    <Waterfall/>
+    <Swiper/>
   </div>
 </template>
 <script>
-import Waterfall from "../../components/waterfall/index"
+import Swiper from "../../components/buySeiper copy"
 
 export default {
   components:{
-    Waterfall,
+    Swiper,
   }
 }
 </script>

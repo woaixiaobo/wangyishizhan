@@ -10,8 +10,6 @@
           </div>
         </div> 
       </div>
-      <!-- Add Pagination -->
-    <div class="swiper-scrollbar"></div>
       <!-- <div class="swiper-slide">
         <div class="slideItem">
           <img src="https://yanxuan.nosdn.127.net/e21381b7e1e7caebbe72488db9542163.gif" alt="">
@@ -22,6 +20,8 @@
         </div> 
       </div> -->
     </div>
+    <!-- Add Pagination -->
+    <div class="swiper-pagination"></div>
   </div>
 </template>
 <script>
@@ -46,11 +46,8 @@ export default {
         slidesPerView: 4,
         slidesPerColumn: 2,
         spaceBetween: 0,
-        scrollbar: {
+        pagination: {
           el: '.swiper-pagination',
-          dragSize: 30,
-          // clickable: true,
-          // type: 'bullets',
         },
       });
       // mySwiper.scrollbar.$el.css('height','15px');
@@ -71,10 +68,10 @@ export default {
       height: 100%;
       margin-left: auto;
       margin-right: auto;
-      // ---swiper-theme-color: #ff6600;
-      // --swiper-pagination-color: #00ff33;/* 两种都可以 */
     }
     .swiper-slide {
+      // ---swiper-theme-color: #ff6600;
+      // --swiper-pagination-color: #00ff33;/* 两种都可以 */
       text-align: center;
       font-size: 18px;
       background: #fff;

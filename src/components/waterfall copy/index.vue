@@ -1,9 +1,9 @@
 <template>
   <div class="container-water-fall water-content" >
-    <waterfall :col='col' :gutterWidth="gutterWidth"  :data="WaterFish"  @loadmore="loadmore"  @scroll="scroll"  >
+    <waterfall :col='col' :loadDistance='500' @loadmore="loadmore" :gutterWidth="gutterWidth"  :data="WaterFish"    @scroll="scroll"  >
       <template >
         <div class="cell-item" v-for="(item,index) in WaterFish" :key='index'>
-          <img v-if="item" :src="item.picUrl" alt="加载错误"  /> 
+          <img v-if="item" :class="{active:item.layoutType===2}" :src="item.picUrl" alt="加载错误"  /> 
           <div class="item-body">
               <div class="item-desc">{{item.title}}</div>
               <div class="item-footer">
@@ -48,10 +48,6 @@
                           5RCcAMqEXmta9JloAAAAAElFTkSuQmCC" alt="">
                         </span> 
                   </div>
-                  <!-- <div class="like" :class="item.liked?'active':''" >
-                      <i ></i>
-                      <div class="like-total">{{item.liked}}</div>  
-                  </div> -->
               </div>
           </div>
         </div>
@@ -64,6 +60,7 @@
 export default{
   data(){
     return{
+        flag:true,
         WaterNum:1,//触底瀑布的次数
         WaterFish:[],//处理完成的数组，包含topics和look
         data:[
@@ -157,7 +154,7 @@ export default{
   },
   methods:{
     //初始化请求数据
-    async initWaterFall(page=1,size=10){
+    async initWaterFall(page=1,size=5){
       let result = await this.$API.getWaterArgin({page,size});
       console.log(result.data.data.result);
       this.WaterArgin = result.data.data.result
@@ -177,13 +174,24 @@ export default{
       this.WaterFish = this.WaterFish.concat(finsh,this.WaterFish)
     },
     scroll(){
+      // 
       // console.log(scrollData)
+      // if(!this.flag) return
+      // if(scrollData.scrollTop>(document.documentElement.scrollHeight-1000)){
+      //   this.flag=false;
+      //   console.log(1);
+      //   this.loadmore();
+      //   }
+      // setTimeout(()=>{
+      //   this.flag=true
+      // },2000)
     },
     switchCol(col){
       this.col = col
       console.log(this.col)
     },
     loadmore(){
+      // console.log(2);
       this.WaterNum+=1
       this.initWaterFall(this.WaterNum,5);
     }
@@ -203,11 +211,16 @@ export default{
     margin-top: 10px;
     border-radius: 10px;
     background: #fff;
+    margin-right: 20px;
     img{
       width: 100%;
       border-radius: 10px;
-      // transform: scale(1.8);
-      // height: 172.5*2px;
+      // height: auto;
+      display: block;
+      &.active{
+        transform: scaleX(1.8);
+        height: 172.5*2px;
+      }
     }
     .item-body{
       .item-desc{
@@ -221,7 +234,6 @@ export default{
       .item-footer{
         width: 171.5*2px;
         padding: 10px 10px 0px 10px;
-        // display: flex;
         .left{
           height: 44.5*2px;
           margin-bottom: -10px;
