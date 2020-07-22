@@ -30,6 +30,11 @@ export default {
       activeFlag:'home',//选中的标识
     }
   },
+  mounted() {
+    console.log(this.$route.path.split('/')[1]);
+    // if()
+    this.activeFlag = this.$route.path.split('/')[1];
+  },
   methods:{
     changeActive(type){
       this.activeFlag = type

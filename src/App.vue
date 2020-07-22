@@ -16,9 +16,15 @@ export default {
     }
   },
   mounted(){
+    if(this.$route.path.split('/')[1]==='personal'){
+      this.isPersonal = false
+    }
+    if(this.$route.path==='personal'){
+      this.isPersonal = false;
+    }
     this.$bus.$on('isPersonal',(isPersonal)=>{
       this.isPersonal = isPersonal
-      // console.log(isPersonal);
+      console.log(isPersonal);
     })
   },
   methods:{

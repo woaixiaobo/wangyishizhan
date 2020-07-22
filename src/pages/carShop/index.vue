@@ -28,8 +28,9 @@
 </template>
 <script>
 export default {
-  components:{
-  }
+  mounted() {
+    
+  },
 }
 </script>
 <style lang="less" scoped>
