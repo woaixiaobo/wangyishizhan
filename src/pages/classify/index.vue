@@ -53,7 +53,11 @@ export default {
   methods: {
     //跳转到搜索页面
     toSearch(){
-      this.$router.push('/search')
+      //当前页面路径
+      let now = this.$route.path.split('/')[1]
+      // console.log(now);
+      this.$router.push(`/search?perRoute=${now}`)
+      // this.$router.push('/search')
     },
     //点击切换状态，利用事件委托和自定义属性data 
     changeActive(e){

@@ -22,7 +22,10 @@ export default {
     },
     //去搜索
     toSearch(){
-      this.$router.push('/search')
+      //当前页面路径
+      let now = this.$route.path.split('/')[1]
+      // console.log(now);
+      this.$router.push(`/search?perRoute=${now}`)
       this.$bus.$emit('isPersonal',false)
     },
     //去购物车

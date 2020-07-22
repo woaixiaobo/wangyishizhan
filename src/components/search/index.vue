@@ -88,7 +88,8 @@ export default {
     onCancel() {
       // Toast('取消');
       //回到首页
-      this.$router.push('/home')
+      // console.log(this.$route.query.perRoute);
+      this.$router.push(this.$route.query.perRoute)
       this.$bus.$emit('isPersonal',true)
     },
   },

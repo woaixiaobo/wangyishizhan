@@ -98,7 +98,8 @@ export default {
     },
     //跳转到搜索页面
     toSearch(){
-      this.$router.push('/search')
+      let nowCompontent = this.$route.path.split('/')[1]
+      this.$router.push(`/search?perRoute=${nowCompontent}`)
     },
     //判断是移动端还是pc端
     _isMobile() {
