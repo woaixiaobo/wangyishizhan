@@ -15,6 +15,7 @@ import 'swiper/css/swiper.css'
 //引入瀑布流
 import waterfall from 'vue-waterfall2'
 Vue.use(waterfall)
+
 //引入ui库
 import { Search ,Swipe, SwipeItem,Lazyload,Overlay,Button,CountDown} from 'vant';
 Vue.use(Search);

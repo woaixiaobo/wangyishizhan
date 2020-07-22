@@ -76,6 +76,7 @@ export default {
     align-items: center;
     text-align: center;
     justify-content: center;
+    background-color: #ffffff;
     .in{
       width: 92%;
       height: 56px;
@@ -100,6 +101,7 @@ export default {
     }
   }
   .content{
+    background-color: #fff;
       box-sizing: border-box;
       border-top: 1px solid #f5f5f5;
       height: 1197px;
