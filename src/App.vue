@@ -28,4 +28,5 @@ export default {
   margin: 0;
 } */
   @import url('./assets/css/reset.css');
+  @import url('./assets/font/iconfont.css');
 </style>

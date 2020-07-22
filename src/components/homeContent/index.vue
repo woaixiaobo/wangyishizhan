@@ -1,22 +1,5 @@
 <template>
   <div class="homeContent">
-    <!-- swiper -->
-    <!-- <van-swipe  ref="vanSwiper" @change="onChange" class="my-swipe" :autoplay="3000" indicator-color="white">
-      <van-swipe-item v-for="(item, index) in swiperImages" :key="index"> -->
-        <!-- 懒加载图片 -->
-        <!-- <img  v-lazy="item" > -->
-        <!-- <img  :src="item" >
-      </van-swipe-item>
-      <template #indicator>
-        <div class="container" >
-          <div @click="changeSwiperItem(index)" v-for="(item, index) in swiperImages" 
-              :key="index" class="custom-indicator"
-              :class="{active:index===current}"
-              >
-          </div>
-        </div>
-      </template>
-    </van-swipe> -->
     <Swiper :swipeData="swiperImages"/>
     <!-- 三个横向标题 -->
     <ul class="grow">
@@ -199,6 +182,8 @@
 <script>
 import {mapState,mapActions} from "vuex"
 import Swiper from "../swiper/index"
+//引入底部导航
+// import NavBottom from "./components/navBottom/index"
 export default {
   data() {
     return {
