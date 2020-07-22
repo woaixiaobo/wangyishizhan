@@ -18,14 +18,17 @@ export default {
     //回到主页
     toHome(){
       this.$router.push('/home')
+      this.$bus.$emit('isPersonal',true)
     },
     //去搜索
     toSearch(){
       this.$router.push('/search')
+      this.$bus.$emit('isPersonal',true)
     },
     //去购物车
     toCarShop(){
       this.$router.push('/carShop')
+      this.$bus.$emit('isPersonal',true)
     }
   }
 }

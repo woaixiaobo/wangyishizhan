@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <NavBottom/>
+    <NavBottom v-if="isPersonal"/>
   </div>
 </template>
 
@@ -10,8 +10,16 @@
 import NavBottom from "./components/navBottom/index"
 export default {
   name: 'App',
+  data() {
+    return {
+      isPersonal:true
+    }
+  },
   mounted(){
-  
+    this.$bus.$on('isPersonal',(isPersonal)=>{
+      this.isPersonal = isPersonal
+      console.log(isPersonal);
+    })
   },
   methods:{
     

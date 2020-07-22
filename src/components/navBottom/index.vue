@@ -1,34 +1,24 @@
 <template>
   <div class="navBottom" >
-      <div @click="changeActive('home')">
-        <router-link to="/home"  class="navItem" data-name="home">
+      <div @click="changeActive('home')" class="navItem">
           <i :class="{active:activeFlag==='home'}"></i>
           <span :class="{active:activeFlag==='home'}">首页</span>
-        </router-link>
       </div>
-      <div @click="changeActive('classify')">
-        <router-link to="/classify" class="navItem">
+      <div @click="changeActive('classify')" class="navItem">
         <i :class="{active:activeFlag==='classify'}"></i>
         <span :class="{active:activeFlag==='classify'}">分类</span>
-      </router-link>
       </div>
-      <div @click="changeActive('DeserveBuy')" >
-        <router-link to="/DeserveBuy" class="navItem">
+      <div @click="changeActive('DeserveBuy')" class="navItem">
           <i :class="{active:activeFlag==='DeserveBuy'}"></i>
           <span :class="{active:activeFlag==='DeserveBuy'}">值得买</span>
-        </router-link>
       </div>
-      <div @click="changeActive('carShop')" >
-        <router-link to="/carShop" class="navItem">
+      <div @click="changeActive('carShop')" class="navItem">
           <i :class="{active:activeFlag==='carShop'}"></i>
           <span :class="{active:activeFlag==='carShop'}">购物车</span>
-        </router-link>
       </div>
-      <div @click="changeActive('personal')" >
-        <router-link to="/personal" class="navItem">
+      <div @click="changeActive('personal')" class="navItem">
           <i :class="{active:activeFlag==='personal'}"></i>
           <span :class="{active:activeFlag==='personal'}">个人</span>
-        </router-link>
       </div>
     </div>
 </template>
@@ -43,6 +33,16 @@ export default {
   methods:{
     changeActive(type){
       this.activeFlag = type
+      //跳转到对应的界面
+      this.$router.push(`/${type}`)
+      if(type==='personal'){
+         //如果点击的是个人中心触发全局事件总线，
+        this.$bus.$emit('isPersonal',false)
+        console.log(1);
+      }
+      else{
+        this.$bus.$emit('isPersonal',true)
+      }
     }
   },
   computed:{
