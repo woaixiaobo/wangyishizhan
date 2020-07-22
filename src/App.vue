@@ -18,7 +18,7 @@ export default {
   mounted(){
     this.$bus.$on('isPersonal',(isPersonal)=>{
       this.isPersonal = isPersonal
-      console.log(isPersonal);
+      // console.log(isPersonal);
     })
   },
   methods:{

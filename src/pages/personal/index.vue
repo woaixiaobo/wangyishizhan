@@ -44,7 +44,7 @@ export default {
 <style lang="less" scoped>
   .personal{
     background-color: #F2F5F4;
-    height: 100%;
+    height: 667*2px;
     
     .logoWarp{
       height: 351*2px;
@@ -103,9 +103,10 @@ export default {
       }
     }
     .bottom{
-      height:456px;
+      // height:456px;
       background-color: #F2F5F4;
       position: relative;
+      bottom: -50px;
       .container{
         display: flex;
         justify-content: center;
