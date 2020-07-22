@@ -25,8 +25,8 @@ export default {
       //当前页面路径
       let now = this.$route.path.split('/')[1]
       // console.log(now);
-      this.$router.push(`/search?perRoute=${now}`)
       this.$bus.$emit('isPersonal',false)
+      this.$router.push(`/search?perRoute=${now}`)
     },
     //去购物车
     toCarShop(){

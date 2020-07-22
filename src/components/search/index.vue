@@ -87,10 +87,15 @@ export default {
     //点击取消时触发
     onCancel() {
       // Toast('取消');
+      if(this.$route.query.perRoute==='personal'){
+        this.$bus.$emit('isPersonal',false)
+      }else{
+        this.$bus.$emit('isPersonal',true)
+      }
+      
       //回到首页
       // console.log(this.$route.query.perRoute);
       this.$router.push(this.$route.query.perRoute)
-      this.$bus.$emit('isPersonal',true)
     },
   },
 }
