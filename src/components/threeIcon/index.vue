@@ -23,7 +23,7 @@ export default {
     //去搜索
     toSearch(){
       this.$router.push('/search')
-      this.$bus.$emit('isPersonal',true)
+      this.$bus.$emit('isPersonal',false)
     },
     //去购物车
     toCarShop(){

@@ -1,5 +1,5 @@
 <template>
-  <div id="root">
+  <div id="home">
     <HomeHeader/>
     <HomeContent v-show="isShow" ></HomeContent>
     <cateGroys  v-show="!isShow"></cateGroys>
@@ -28,5 +28,6 @@ export default {
   }
 }
 </script>
-<style lang="less" >
+<style lang="less" scoped>
+
 </style>
