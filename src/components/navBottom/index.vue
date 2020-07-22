@@ -31,7 +31,7 @@ export default {
     }
   },
   mounted() {
-    console.log(this.$route.path.split('/')[1]);
+    // console.log(this.$route.path.split('/')[1]);
     // if()
     this.activeFlag = this.$route.path.split('/')[1];
   },
