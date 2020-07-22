@@ -11,7 +11,7 @@ import * as API from "./api"
 Vue.prototype.$API = API
 //引入swiper轮播库
 // If you use Swiper 6.0.0 or higher
-import 'swiper/swiper-bundle.css'
+import 'swiper/css/swiper.css'
 //引入瀑布流
 import waterfall from 'vue-waterfall2'
 Vue.use(waterfall)

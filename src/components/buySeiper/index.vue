@@ -21,11 +21,12 @@
       </div> -->
     </div>
     <!-- Add Pagination -->
-    <div class="swiper-pagination"></div>
+    <!-- <div class="swiper-pagination"></div> -->
+     <div class="swiper-scrollbar"></div>
   </div>
 </template>
 <script>
-import Swiper from 'swiper';  
+import Swiper from 'swiper'
 export default {
   data() {
     return {
@@ -42,16 +43,22 @@ export default {
   },
   methods: {
     initSwiper(){
-      new Swiper('.swiper-container', {
-        slidesPerView: 4,
+      let mySwiper = new Swiper('.swiper-container', {
+        slidesPerView :4,
+        // slidesPerGroup : 1,
         slidesPerColumn: 2,
-        spaceBetween: 0,
+        // spaceBetween: 0,
         pagination: {
           el: '.swiper-pagination',
         },
+        scrollbar: {
+          el: '.swiper-scrollbar',
+          dragSize:20
+        },
       });
-      // mySwiper.scrollbar.$el.css('height','15px');
-      // mySwiper.scrollbar.$dragEl.css('background','#ff6600');
+      //拖动条的颜色
+      mySwiper.scrollbar.dragEl.style.background='red';
+      // console.log(mySwiper.scrollbar.dragEl.style.background);
     },
     //请求
     async getNavWap(){
@@ -116,12 +123,16 @@ export default {
       }
 
     }
-    // .swiper-pagination{
-    //   position: absolute;
-    //   left: 0;
-    //   bottom: 0;
-    //   width: 350px;
-    //   height: 10px;
-    //   background-color: gray;
-    // }
+    .swiper-container-horizontal > .swiper-scrollbar{
+      height: 5px;
+      width: 200px;
+      left: 50%;
+      transform: translateX(-50%);
+      .swiper-scrollbar-drag{
+        background:red;
+      }
+    }
+    .swiper-container-horizontal > .swiper-scrollbar >.swiper-scrollbar-drag{
+      background:red;
+    }
 </style>

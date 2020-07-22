@@ -1,14 +1,14 @@
 <template>
   <div id="root">
-    <Swiper/>
+    <!-- <Swiper/> -->
   </div>
 </template>
 <script>
-import Swiper from "../../components/buySeiper copy"
+// import Swiper from "../../components/buySeiper copy"
 
 export default {
   components:{
-    Swiper,
+    // Swiper,
   }
 }
 </script>
