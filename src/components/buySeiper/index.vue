@@ -22,7 +22,7 @@
     </div>
     <!-- Add Pagination -->
     <!-- <div class="swiper-pagination"></div> -->
-     <div class="swiper-scrollbar"></div>
+    <div class="swiper-scrollbar"></div>
   </div>
 </template>
 <script>
@@ -128,11 +128,5 @@ export default {
       width: 200px;
       left: 50%;
       transform: translateX(-50%);
-      .swiper-scrollbar-drag{
-        background:red;
-      }
-    }
-    .swiper-container-horizontal > .swiper-scrollbar >.swiper-scrollbar-drag{
-      background:red;
     }
 </style>

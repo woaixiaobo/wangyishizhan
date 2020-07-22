@@ -1,14 +1,14 @@
 <template>
   <div id="root">
-    <!-- <Swiper/> -->
+    <ThreeIcon title="小博专属"/>
   </div>
 </template>
 <script>
-// import Swiper from "../../components/buySeiper copy"
+import ThreeIcon from "../../components/threeIcon/index"
 
 export default {
   components:{
-    // Swiper,
+    ThreeIcon,
   }
 }
 </script>

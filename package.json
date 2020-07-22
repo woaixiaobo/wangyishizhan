@@ -19,6 +19,7 @@
     "pubsub-js": "^1.8.0",
     "sass": "^1.26.10",
     "sass-loader": "^9.0.2",
+    "stylus": "^0.54.8",
     "stylus-loader": "^3.0.2",
     "swiper": "^5.4.5",
     "vant": "^2.9.3",
