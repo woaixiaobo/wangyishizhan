@@ -2,11 +2,11 @@
   <div class="buy">
     <!-- 头部 -->
     <div class="buyHeader">
-      <span class="homeIcon"></span>
+      <span class="homeIcon" @click="toHome"></span>
       <span class="text">值得买</span>
       <div class="twoIcon">
-        <span></span>
-        <span></span>
+        <span @click="toSearch"></span>
+        <span @click="toCarShop"></span>
       </div>
     </div>
     <!-- 卡片区域 -->
@@ -37,8 +37,19 @@ export default {
     return {
     }
   },
-  async mounted() {
-  
+  methods:{
+    //回到主页
+    toHome(){
+      this.$router.push('/home')
+    },
+    //去搜索
+    toSearch(){
+      this.$router.push('/search')
+    },
+    //去购物车
+    toCarShop(){
+      this.$router.push('/carShop')
+    }
   },
   components:{
     BuySwiper,
