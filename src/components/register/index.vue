@@ -53,19 +53,29 @@ export default {
   data() {
     return {
       checked: true,
-      phone2: '',
-      password: '',
+      phone2: null,
+      password: null,
       pattern: /^1[3456789]\d{9}$/,//手机号校验规则
       code: /\d{6}/,//验证码校验规则 六位数字
     }
   },
   methods: {
-      // 校验函数返回 true 表示校验通过，false 表示不通过
-      validator(val) {
-        return /\d{6}/.test(val);
-      },
-    onSubmit(values) {
+    // 校验函数返回 true 表示校验通过，false 表示不通过
+    validator(val) {
+      return /\d{6}/.test(val);
+    },
+    //点击提交
+    async onSubmit(values) {
       console.log('submit', values);
+      let result = await this.$API.register({
+        user:this.phone2,
+        code:this.password
+      })
+      if(result.data.code===200){
+        if(!localStorage.getItem("user")){
+          localStorage.setItem("user",result.data.name)
+        }
+      }
     },
   },
 }
