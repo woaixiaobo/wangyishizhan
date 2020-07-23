@@ -8,15 +8,16 @@
       <van-form @submit="onSubmit">
         <van-field 
           v-model="phone2" 
-          :rules="[{ required: true, message: '请输入手机号' }]"
+          name="phone"
+          :rules="[{ pattern, message: '手机号格式错误' }]"
           placeholder="请输入手机号"
           />
         <van-field
           v-model="password"
           type="password"
-          name="密码"
+          name="code"
           placeholder="请输入短信验证码"
-          :rules="[{ required: true, message: '请输入短信验证码' }]"
+          :rules="[{ validator , message: '请输入6位短信验证码' }]"
           />
         <!-- 遇到问题 使用验证码登录区域 -->
         <div class="problems">
@@ -40,9 +41,9 @@
         </div>
       </van-form>
       <div class="loginMethod">
-      <span>其他登录方式</span>
-      <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/arrow-right3-6264a71cf0.png?imageView&type=webp" alt="">
-    </div>
+        <span>其他登录方式</span>
+        <img src="http://yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/arrow-right3-6264a71cf0.png?imageView&type=webp" alt="">
+      </div>
     </div>
     
   </div>
@@ -54,9 +55,15 @@ export default {
       checked: true,
       phone2: '',
       password: '',
+      pattern: /^1[3456789]\d{9}$/,//手机号校验规则
+      code: /\d{6}/,//验证码校验规则 六位数字
     }
   },
   methods: {
+      // 校验函数返回 true 表示校验通过，false 表示不通过
+      validator(val) {
+        return /\d{6}/.test(val);
+      },
     onSubmit(values) {
       console.log('submit', values);
     },
