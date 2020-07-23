@@ -1,12 +1,12 @@
 <template>
   <div class="personal">
-    <ThreeIcon title="小博专属"/>
-    <div class="logoWarp">
+    <ThreeIcon title="小博专属" color="#fafafa"/>
+    <div v-if="!isLogin" class="logoWarp">
       <img src="http://yanxuan.nosdn.127.net/39c5e4583753d4c3cb868a64c2c109ea.png" alt="">
       <div class="login">
         <div class="phone comon">
           <i></i>
-          <span>手机号快捷登录</span>
+          <span @click="toLogin">手机号快捷登录</span>
         </div>
         <div class="email comon">
           <i></i>
@@ -14,7 +14,7 @@
         </div>
       </div>
     </div>
-    <div class="bottom">
+    <div v-if="!isLogin" class="bottom">
       <div class="container">
         <div class="wexin">
           <i class="iconfont icon-gongzhonghao"></i>
@@ -30,14 +30,27 @@
         </div>
       </div>
     </div>
+    <!-- 注册组件 -->
+    <register v-if="isLogin"/>
   </div>
 </template>
 <script>
 import ThreeIcon from "../../components/threeIcon/index"
-
+import Register from "../../components/register/index"
 export default {
+  data() {
+    return {
+      isLogin:false,//是否是注册页面
+    }
+  },
+  methods:{
+    toLogin(){
+      this.isLogin = true
+    },
+  },
   components:{
     ThreeIcon,
+    Register,
   }
 }
 </script>

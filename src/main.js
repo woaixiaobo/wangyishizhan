@@ -17,7 +17,7 @@ import waterfall from 'vue-waterfall2'
 Vue.use(waterfall)
 
 //引入ui库
-import { Search ,Swipe, SwipeItem,Lazyload,Overlay,Button,CountDown} from 'vant';
+import { Search ,Swipe, SwipeItem,Lazyload,Overlay,Button,CountDown,Form,Field ,Checkbox, CheckboxGroup} from 'vant';
 Vue.use(Search);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
@@ -25,6 +25,11 @@ Vue.use(Lazyload);
 Vue.use(Overlay);
 Vue.use(Button);
 Vue.use(CountDown);
+Vue.use(Form);
+Vue.use(Field);
+Vue.use(Checkbox);
+Vue.use(CheckboxGroup);
+
 Vue.config.productionTip = false
 
 new Vue({

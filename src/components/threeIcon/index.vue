@@ -1,5 +1,5 @@
 <template>
-  <div class="buyHeader">
+  <div class="buyHeader" :style="{backgroundColor:color?color:'#fff'}">
     <span class="homeIcon" @click="toHome"></span>
     <span class="text">{{this.title}}</span>
     <div class="twoIcon">
@@ -13,6 +13,7 @@
 export default {
   props:{
     title:String,
+    color:String,
   },
   methods:{
     //回到主页
@@ -41,7 +42,7 @@ export default {
   width: 100%;
   height: 100px;
   padding: 27px 30px;
-  background-color: #fff;
+  background-color: #fafafa;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
