@@ -148,7 +148,7 @@ export default {
     img{
       width: 28px;
       height: 28px;
-      margin-left: 110px;
+      margin-left: 111px;
       margin-top: 3px;
     }
   }
