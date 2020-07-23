@@ -73,8 +73,11 @@ export default {
       })
       if(result.data.code===200){
         if(!localStorage.getItem("user")){
-          localStorage.setItem("user",result.data.name)
+          localStorage.setItem("user",JSON.stringify(result.data.name))
         }
+        this.$bus.$emit('isPersonal',true)
+        //跳转到首页
+        this.$router.push('/responal')
       }
     },
   },

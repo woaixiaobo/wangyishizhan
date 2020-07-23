@@ -10,5 +10,16 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   routes // (缩写) 相当于 routes: routes
 })
-
+router.beforeEach((to, from, next) => {
+  console.log(to.fullPath=="/responal",from);
+  if(to.fullPath=="/responal"){
+    let user = JSON.parse(localStorage.getItem('user'))
+    if(!user){
+      next('/personal')
+    }
+  }else{
+    next()
+  }
+  next()
+})
 export default router

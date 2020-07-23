@@ -19,12 +19,12 @@ export default {
     if(this.$route.path.split('/')[1]==='personal'){
       this.isPersonal = false
     }
-    if(this.$route.path==='personal'){
+    if(this.$route.path==='responal'){
       this.isPersonal = false;
     }
     this.$bus.$on('isPersonal',(isPersonal)=>{
       this.isPersonal = isPersonal
-      // console.log(isPersonal);
+      console.log(isPersonal);
     })
   },
   methods:{

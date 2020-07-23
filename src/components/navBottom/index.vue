@@ -16,9 +16,9 @@
           <i :class="{active:activeFlag==='carShop'}"></i>
           <span :class="{active:activeFlag==='carShop'}">购物车</span>
       </div>
-      <div @click="changeActive('personal')" class="navItem">
-          <i :class="{active:activeFlag==='personal'}"></i>
-          <span :class="{active:activeFlag==='personal'}">个人</span>
+      <div @click="changeActive('responal')" class="navItem">
+          <i :class="{active:activeFlag==='responal'}"></i>
+          <span :class="{active:activeFlag==='responal'}">个人</span>
       </div>
     </div>
 </template>
@@ -40,9 +40,12 @@ export default {
       this.activeFlag = type
       //跳转到对应的界面
       this.$router.push(`/${type}`)
-      if(type==='personal'){
+      if(type==='responal'){
          //如果点击的是个人中心触发全局事件总线，
-        this.$bus.$emit('isPersonal',false)
+        let user = localStorage.getItem('user')
+        if(!user){
+            this.$bus.$emit('isPersonal',false)
+        }
         console.log(1);
       }
       else{
