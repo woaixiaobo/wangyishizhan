@@ -18,6 +18,7 @@ Vue.use(waterfall)
 
 //引入ui库
 import { Search ,Swipe, SwipeItem,Lazyload,Overlay,Button,CountDown,Form,Field ,Checkbox, CheckboxGroup} from 'vant';
+import {Dialog,Toast } from "vant"
 Vue.use(Search);
 Vue.use(Swipe);
 Vue.use(SwipeItem);
@@ -29,6 +30,7 @@ Vue.use(Form);
 Vue.use(Field);
 Vue.use(Checkbox);
 Vue.use(CheckboxGroup);
+Vue.use(Dialog,Toast );
 
 Vue.config.productionTip = false
 

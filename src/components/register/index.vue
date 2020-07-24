@@ -59,6 +59,9 @@ export default {
       code: /\d{6}/,//验证码校验规则 六位数字
     }
   },
+  mounted() {
+    // this.$toast('提示文案');
+  },
   methods: {
     // 校验函数返回 true 表示校验通过，false 表示不通过
     validator(val) {
@@ -76,8 +79,11 @@ export default {
           localStorage.setItem("user",JSON.stringify(result.data.name))
         }
         this.$bus.$emit('isPersonal',true)
+        this.$toast('登录成功');
         //跳转到首页
         this.$router.push('/responal')
+      }else{
+        this.$toast('密码错误');
       }
     },
   },
