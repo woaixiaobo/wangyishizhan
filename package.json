@@ -14,7 +14,7 @@
     "core-js": "^3.6.5",
     "less-loader": "^6.2.0",
     "lib-flexible": "^0.3.2",
-    "lodash": "^4.17.19",
+    "lodash": "^4.17.21",
     "mint-ui": "^2.2.13",
     "postcss-plugin-px2rem": "^0.8.1",
     "pubsub-js": "^1.8.0",
